@@ -38,25 +38,17 @@ export default class Main extends React.Component{
             this.state.properties.map(property=>{
               return (
                 <Grid key={property.id} item xs={12} sm={6}>
-                  <img style={styles.property} src={property.picture} alt="property"/>
+                  <Grid>
+                    <img style={styles.property} src={property.picture_large} alt="property"/>
+                    <p>{property.title}</p>
+                    <p>{property.address}</p>
+                  </Grid>
+
                 </Grid>
               )
             })
           }
-          <Grid item xs={6}>
-          One
-          </Grid>
-          <Grid item xs={6}>
-          Two
-          </Grid>
-          <Grid item xs={6}>
-          Three
-          </Grid>
-          <Grid item xs={6}>
-          Four
-          </Grid>
-          <Grid item xs={6}>
-          </Grid>
+
         </Grid>
       </div>
     )
