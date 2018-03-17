@@ -12,6 +12,9 @@ import DraftsIcon from 'material-ui-icons/Drafts';
 import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Main from '../src/components/Main'
+import Details from '../src/components/Details'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -64,7 +67,12 @@ class App extends Component {
             </List>
           </div>
         </Drawer>
-        <Main/>
+        <Router>
+          <div>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/details" component={Details} />
+          </div>
+        </Router>
       </div>
     );
   }

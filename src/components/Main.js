@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
 import {getProperties} from '../Logic/requestAPI';
+import Details from './Details';
+import {setSelectedProperty} from '../Logic/selectedPropertyDetails';
 
 const styles={
   property : {
     width: '50%',
     padding: 50,
     maxHeight: 200
+  },
+  prop : {
+    fontSize: 15
   }
 }
 export default class Main extends React.Component{
@@ -30,19 +35,28 @@ export default class Main extends React.Component{
     this.renderProperties();
   }
 
+  showDetails(index){
+    var property = this.state.properties[index];
+    setSelectedProperty(property);
+    this.props.history.push("/details");
+  }
+
   render(){
     return(
       <div>
         <Grid container>
           {
-            this.state.properties.map(property=>{
+            this.state.properties.map((property, index)=>{
               return (
-                <Grid key={property.id} item xs={12} sm={6}>
-                  <img style={styles.property} src={property.picture} alt="property"/>
+                <Grid key={property.id} item xs={12} sm={6} style={styles.prop} onClick={() => this.showDetails(index)}>
+                  <img style={styles.property} src={property.picture_large} alt="property"/>
+				          <p>{property.title}</p>
+                  <p>{property.address}</p>
                 </Grid>
               )
-            })
-          }
+            }
+          )}
+
           <Grid item xs={6}>
           One
           </Grid>
@@ -58,6 +72,7 @@ export default class Main extends React.Component{
           <Grid item xs={6}>
           </Grid>
         </Grid>
+
       </div>
     )
   }
