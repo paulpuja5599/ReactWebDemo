@@ -43,8 +43,6 @@ export default class Details extends Component{
             <p><b>Title:&nbsp;&nbsp;</b>{selectedProperty.title}</p>
             <p><b>Address:&nbsp;&nbsp;</b>{selectedProperty.address}</p>
             <p><b>City:&nbsp;&nbsp;</b>{selectedProperty.city}</p>
-            <p><b>Latitude:&nbsp;&nbsp;</b>{selectedProperty.latitude}</p>
-            <p><b>Longitude:&nbsp;&nbsp;</b>{selectedProperty.longitude}</p>
             <p><b>Type:&nbsp;&nbsp;</b>{selectedProperty.type}</p>
             <p><b>Bedroom:&nbsp;&nbsp;</b>{selectedProperty.floorplan.bedrooms}</p>
             <p><b>Bathroom:&nbsp;&nbsp;</b>{selectedProperty.floorplan.bathrooms}</p>
